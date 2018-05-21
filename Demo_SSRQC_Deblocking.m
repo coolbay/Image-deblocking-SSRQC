@@ -65,8 +65,7 @@ for JPEG_Quality = [5,10,15,25,40,50,70]
         par.QTable = JPEG_header_info.quant_tables{1};   % quantization table for 8*8 block
         par.C_q  = blkproc(par.nim , [8, 8], 'dct2');    % apply DCT to each block of y      
         meanQuant=mean(mean(par.QTable(1:3,1:3)));
-        par.nSig = sqrt(0.69*meanQuant^1.3);             % Gaussian variance for the quantization noise model        
-        par.lambda = lambda;                             % set lambda        
+        par.nSig = sqrt(0.69*meanQuant^1.3);             % Gaussian variance for the quantization noise model      
              
         %% Start the denoising algorithm
         disp('SSRQC Algorithm for Deblocking');      
